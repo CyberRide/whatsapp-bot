@@ -188,7 +188,7 @@ def chatbot():
         msg.body("I don't have any favourite food because am immortal")
 
     if 'quote' in incoming_msg:
-        r = requests.get('https://api.quotable.io/random')
+        r = requests.get('https://api.quotable.io/random', timeout=60)
         if r.status_code == 200:
             data = r.json()
             quote = f'{data["content"]} ({data["author"]})'
